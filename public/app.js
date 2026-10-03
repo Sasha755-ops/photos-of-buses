@@ -44,4 +44,5 @@ const lang=$("lang"); if(lang) lang.addEventListener("change",()=>{
  localStorage.setItem("busfoto-lang",lang.value);
 });
 if(lang){lang.value=localStorage.getItem("busfoto-lang")||"ru";lang.dispatchEvent(new Event("change"))}
+const geoBtn=$("geoBtn"),geoMsg=$("geoMsg");if(geoBtn)geoBtn.onclick=()=>{if(!navigator.geolocation){geoMsg.textContent="Геопозиция не поддерживается этим браузером.";return}geoBtn.disabled=true;geoMsg.textContent="Определяю местоположение…";navigator.geolocation.getCurrentPosition(pos=>{const form=$("uploadForm");form.elements.lat.value=pos.coords.latitude.toFixed(6);form.elements.lon.value=pos.coords.longitude.toFixed(6);geoMsg.textContent="✓ Координаты добавлены";geoBtn.disabled=false},err=>{geoMsg.textContent=err.code===1?"Доступ к геопозиции запрещён. Разреши его для BusFoto в настройках браузера.":"Не удалось определить местоположение. Попробуй ещё раз.";geoBtn.disabled=false},{enableHighAccuracy:true,timeout:12000,maximumAge:60000})};
 if("serviceWorker"in navigator)navigator.serviceWorker.register("/sw.js");observeReveals();csrf().then(async()=>{await meLoad();await loadAll()}).catch(console.error);
