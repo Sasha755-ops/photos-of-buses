@@ -63,3 +63,20 @@
  .catalog-grid article{min-height:84px!important;padding:10px!important}
  .vehicle-detail{padding:12px!important}
 }
+
+/* Compact typography balance — readable text, tight spacing */
+.heading h2{font-size:clamp(30px,4vw,48px)!important;line-height:1.02!important}
+.heading p{font-size:14px!important;line-height:1.45!important}
+.catalog-grid article h3{font-size:17px!important;line-height:1.15!important}
+.catalog-grid article p{font-size:12px!important;line-height:1.35!important}
+.catalog-grid article small{font-size:9px!important}
+.vehicle-detail h2,.vehicle-detail h3{line-height:1.08!important}
+.vehicle-detail p{font-size:14px!important;line-height:1.35!important}
+.operator-chips button,.catalog-tabs button,.gallery-tabs button{font-size:11px!important}
+@media(max-width:780px){
+ .heading h2{font-size:32px!important}
+ .heading p{font-size:14px!important}
+ .catalog-grid article h3{font-size:16px!important}
+ .catalog-grid article p{font-size:12px!important}
+ .vehicle-detail p{font-size:13px!important}
+}
