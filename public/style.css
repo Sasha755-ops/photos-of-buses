@@ -22,3 +22,5 @@
 .geo-breadcrumbs{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0 0 18px}.geo-breadcrumbs button{border:0;background:transparent;color:inherit;text-decoration:underline;cursor:pointer}.geo-card{text-align:left;color:inherit;cursor:pointer;width:100%}.geo-places{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.geo-places span{font-size:.78rem;padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.06)}
 
 .profile-save-ok{padding:10px 12px;border-radius:12px;background:rgba(80,200,120,.12);font-weight:700}.profile-save-error{padding:10px 12px;border-radius:12px;background:rgba(220,80,80,.12);font-weight:700}#profileEdit button:disabled{opacity:.6;cursor:wait}
+
+.geo-place{font:inherit;color:inherit;border:0;cursor:pointer;font-size:.78rem;padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.06)}.geo-place:hover{background:rgba(255,255,255,.12)}
