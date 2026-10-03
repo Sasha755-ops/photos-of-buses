@@ -29,3 +29,37 @@
 /* Compact layout */
 .section{padding-top:52px;padding-bottom:52px}.compact-section{padding-top:42px;padding-bottom:42px}.heading{margin-bottom:24px}.hero{min-height:72vh}.community-banner{padding:24px 28px}.community-badge{width:120px;height:120px;font-size:36px}.join-strip{padding:28px 40px}.join-strip h2{font-size:30px}.catalog-tabs{margin:16px 0 14px}.catalog-grid{max-height:560px}.catalog-grid article{min-height:118px;padding:14px}.vehicle-detail{padding:20px}
 @media(max-width:780px){.section{padding-top:36px;padding-bottom:36px}.compact-section{padding-top:30px;padding-bottom:30px}.hero{min-height:62vh}.heading{margin-bottom:18px}.catalog-grid{max-height:480px;gap:8px}.catalog-grid article{min-height:108px;padding:12px}.community-banner{padding:18px 15px}.join-strip{padding:22px 16px}.vehicle-detail{padding:16px}}
+
+/* Compact v2 — visibly shorter */
+.section{padding-top:30px!important;padding-bottom:30px!important}
+.compact-section{padding-top:24px!important;padding-bottom:24px!important}
+.hero{min-height:52vh!important;padding-top:70px!important;padding-bottom:28px!important}
+.heading{margin-bottom:14px!important}
+.heading h2{margin-bottom:6px!important}
+.spotlight{padding-top:20px!important;padding-bottom:20px!important;gap:14px!important}
+.spotlight-board div{min-height:90px!important}
+.community-banner{padding:16px 20px!important;margin-bottom:12px!important}
+.community-badge{width:92px!important;height:92px!important;font-size:28px!important}
+.join-strip{padding:18px 28px!important}
+.join-strip h2{font-size:26px!important;margin:4px 0!important}
+.gallery-tabs{margin-bottom:10px!important}
+.catalog-tabs{margin:10px 0!important}
+.catalog-grid{gap:7px!important;max-height:500px!important}
+.catalog-grid article{min-height:92px!important;padding:11px!important}
+.catalog-grid article h3{margin:6px 0 5px!important}
+.vehicle-detail{padding:14px!important}
+.vehicle-detail p{margin:5px 0!important}
+.geo-breadcrumbs{margin-bottom:10px!important}
+@media(max-width:780px){
+ .section{padding-top:22px!important;padding-bottom:22px!important}
+ .compact-section{padding-top:18px!important;padding-bottom:18px!important}
+ .hero{min-height:46vh!important;padding-top:62px!important;padding-bottom:20px!important}
+ .spotlight{padding-top:14px!important;padding-bottom:14px!important}
+ .spotlight-board div{min-height:78px!important}
+ .community-banner{padding:13px!important}
+ .join-strip{padding:16px 14px!important}
+ .join-strip h2{font-size:23px!important}
+ .catalog-grid{max-height:430px!important}
+ .catalog-grid article{min-height:84px!important;padding:10px!important}
+ .vehicle-detail{padding:12px!important}
+}
