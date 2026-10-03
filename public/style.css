@@ -10,3 +10,9 @@
 .catalog{background:#07111d;color:#fff}.catalog .heading p{color:#9aaab7}.catalog #catalogSearch{background:#101d29;border-color:#2a3d4d;color:#fff}.catalog-tabs{display:flex;gap:8px;margin:25px 0 18px}.catalog-tabs button{border:1px solid #2a3d4d;background:#101d29;color:#a9b7c2;padding:10px 14px;border-radius:30px;cursor:pointer}.catalog-tabs button.active{background:#167dff;color:#fff;border-color:#167dff}.catalog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-height:620px;overflow:auto;padding-right:4px}.catalog-grid article{min-height:145px;background:#0e1b27;border:1px solid #213443;border-radius:14px;padding:18px}.catalog-grid article small{color:#55a3ff;font-size:8px;letter-spacing:1px}.catalog-grid article h3{margin:10px 0 8px}.catalog-grid article p{font-size:11px;line-height:1.5;color:#899aa8;margin:0}@media(max-width:780px){.catalog-grid{grid-template-columns:1fr 1fr;max-height:520px}.catalog-grid article{min-height:125px;padding:14px}}
 
 .floating-upload{position:fixed;right:18px;bottom:18px;z-index:40;background:#167dff;color:#fff;text-decoration:none;padding:13px 17px;border-radius:30px;font-size:11px;font-weight:900;box-shadow:0 12px 35px #167dff55}@media(max-width:780px){.floating-upload{right:12px;bottom:12px;padding:12px 15px}}
+
+.clickable-operator,.bus-record{cursor:pointer;transition:transform .2s ease,border-color .2s ease}
+.clickable-operator:hover,.bus-record:hover{transform:translateY(-3px)}
+.open-fleet{display:inline-block;margin-top:14px;font-size:13px;text-decoration:underline}
+.vehicle-detail{grid-column:1/-1;max-width:760px;padding:30px}
+.vehicle-detail p{margin:10px 0}.vehicle-detail a{font-weight:700}
