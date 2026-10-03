@@ -24,3 +24,8 @@
 .profile-save-ok{padding:10px 12px;border-radius:12px;background:rgba(80,200,120,.12);font-weight:700}.profile-save-error{padding:10px 12px;border-radius:12px;background:rgba(220,80,80,.12);font-weight:700}#profileEdit button:disabled{opacity:.6;cursor:wait}
 
 .geo-place{font:inherit;color:inherit;border:0;cursor:pointer;font-size:.78rem;padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.06)}.geo-place:hover{background:rgba(255,255,255,.12)}
+
+
+/* Compact layout */
+.section{padding-top:52px;padding-bottom:52px}.compact-section{padding-top:42px;padding-bottom:42px}.heading{margin-bottom:24px}.hero{min-height:72vh}.community-banner{padding:24px 28px}.community-badge{width:120px;height:120px;font-size:36px}.join-strip{padding:28px 40px}.join-strip h2{font-size:30px}.catalog-tabs{margin:16px 0 14px}.catalog-grid{max-height:560px}.catalog-grid article{min-height:118px;padding:14px}.vehicle-detail{padding:20px}
+@media(max-width:780px){.section{padding-top:36px;padding-bottom:36px}.compact-section{padding-top:30px;padding-bottom:30px}.hero{min-height:62vh}.heading{margin-bottom:18px}.catalog-grid{max-height:480px;gap:8px}.catalog-grid article{min-height:108px;padding:12px}.community-banner{padding:18px 15px}.join-strip{padding:22px 16px}.vehicle-detail{padding:16px}}
