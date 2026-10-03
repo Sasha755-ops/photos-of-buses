@@ -22,4 +22,26 @@ $("profileBtn").onclick=()=>me?showProfile(me.id):$("auth").classList.remove("hi
 $("modelStories").onclick=e=>{let b=e.target.closest("[data-model-filter]");if(b){$("modelFilter").value=b.dataset.modelFilter;draw();location.hash="gallery"}};
 async function pendingLoad(){let a=await api("/api/admin/pending");$("pending").innerHTML=a.map(p=>'<div class="pending"><span><b>'+esc(p.model)+'</b><br><small>'+esc(p.city)+' · '+esc(p.username)+'</small></span><span><button class="approve" data-moderate="approve" data-id="'+p.id+'">Одобрить</button><button data-moderate="reject" data-id="'+p.id+'">Отклонить</button></span></div>').join("")||"<p class='muted'>Очередь пуста.</p>"}$("pending").onclick=async e=>{let b=e.target.closest("[data-moderate]");if(!b)return;await api("/api/admin/photos/"+b.dataset.id+"/"+b.dataset.moderate,{method:"POST"});await pendingLoad();await loadAll()};
 function route(){let m=location.pathname.match(/^\/photo\/(\d+)/);if(m)openPhoto(+m[1]);let p=location.pathname.match(/^\/profile\/(\d+)/);if(p)showProfile(+p[1])}
-let observer;function observeReveals(){if(!("IntersectionObserver"in window))return document.querySelectorAll(".reveal").forEach(x=>x.classList.add("visible"));observer=observer||new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll(".reveal:not(.visible)").forEach(x=>observer.observe(x))}window.addEventListener("scroll",()=>{let d=document.documentElement,h=d.scrollHeight-d.clientHeight;$("progress").style.width=(h?d.scrollTop/h*100:0)+"%"},{passive:true});if("serviceWorker"in navigator)navigator.serviceWorker.register("/sw.js");observeReveals();csrf().then(async()=>{await meLoad();await loadAll()}).catch(console.error);
+let observer;function observeReveals(){if(!("IntersectionObserver"in window))return document.querySelectorAll(".reveal").forEach(x=>x.classList.add("visible"));observer=observer||new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll(".reveal:not(.visible)").forEach(x=>observer.observe(x))}window.addEventListener("scroll",()=>{let d=document.documentElement,h=d.scrollHeight-d.clientHeight;$("progress").style.width=(h?d.scrollTop/h*100:0)+"%"},{passive:true});
+// Compatibility controls for the current homepage markup.
+document.querySelectorAll("[data-gallery-tab]").forEach(b=>b.addEventListener("click",()=>{
+ document.querySelectorAll("[data-gallery-tab]").forEach(x=>x.classList.toggle("active",x===b));
+ const v=b.dataset.galleryTab;
+ if(v==="popular") $("sort").value="popular"; else $("sort").value="new";
+ $("countryFilter").value=v==="estonia"?"Estonia":"";
+ draw(); location.hash="gallery";
+}));
+document.querySelectorAll("[data-collection]").forEach(b=>b.addEventListener("click",()=>{
+ const v=b.dataset.collection;
+ if(v==="operators"){ location.hash="catalog"; const op=document.querySelector('[data-cat="operators"]'); if(op)op.click(); return; }
+ if(v==="popular") $("sort").value="popular"; else $("sort").value="new";
+ $("countryFilter").value=v==="estonia"?"Estonia":"";
+ draw(); location.hash="gallery";
+}));
+const lang=$("lang"); if(lang) lang.addEventListener("change",()=>{
+ const nav={ru:["Галерея","Модели","Подборки","Сообщество","YouTube"],et:["Galerii","Mudelid","Kogumikud","Kogukond","YouTube"],en:["Gallery","Models","Collections","Community","YouTube"]};
+ document.querySelectorAll("header nav a").forEach((a,i)=>{if(nav[lang.value]?.[i])a.textContent=nav[lang.value][i]});
+ localStorage.setItem("busfoto-lang",lang.value);
+});
+if(lang){lang.value=localStorage.getItem("busfoto-lang")||"ru";lang.dispatchEvent(new Event("change"))}
+if("serviceWorker"in navigator)navigator.serviceWorker.register("/sw.js");observeReveals();csrf().then(async()=>{await meLoad();await loadAll()}).catch(console.error);
