@@ -1,6 +1,3 @@
-const API_ORIGIN=location.hostname==="busfoto-static.onrender.com"?"https://busfoto.onrender.com":location.origin;\nconst PHOTO_ORIGIN="https://dhnqxwwagdcfecndltzs.supabase.co/storage/v1/object/public/bus-photos";
-const nativeFetch=window.fetch.bind(window);
-window.fetch=(input,init={})=>{if(typeof input==="string"&&(input.startsWith("/api/")||input.startsWith("/uploads/")))input=API_ORIGIN+input;init={...init,credentials:"include"};return nativeFetch(input,init)};
 let me=null,photos=[],register=false,csrfToken="",histories=[];const $=x=>document.getElementById(x),esc=s=>String(s||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 async function csrf(){let r=await fetch("/api/csrf",{credentials:"same-origin"}),j=await r.json();if(!r.ok)throw Error(j.error||"Ошибка защиты");csrfToken=j.token}async function api(u,o={}){o.credentials="same-origin";o.headers=o.headers||{};if(o.method&&o.method!=="GET")o.headers["x-csrf-token"]=csrfToken;let r=await fetch(u,o),j=await r.json().catch(()=>({error:"Ошибка сервера"}));if(!r.ok)throw Error(j.error||"Ошибка");return j}
 async function meLoad(){me=await api("/api/me");$("account").textContent=me?me.username:"Войти";if(me?.role==="admin")await pendingLoad();else $("pending").innerHTML="<p class='muted'>Войдите как администратор.</p>"}
